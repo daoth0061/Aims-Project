@@ -10,9 +10,54 @@ public class Cart {
             System.out.println("The disc has been added");
         }
     }
-    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        int i = 1;
+        for (DigitalVideoDisc disc: dvdList) {
+            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
+                System.out.printf("The disc number %d cannot be added. The cart is full.%n", i);
+                break;
+            }
+            else {
+                itemsOrdered[qtyOrdered] = disc;
+                qtyOrdered += 1;
+                System.out.printf("The disc number %d has been added.%n", i);
+            }
+            i += 1;
+        }
+    }
+    // passing an arbitrary number of arguments for dvd
+//    public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
+//        int i = 1;
+//        for (DigitalVideoDisc disc: dvdList) {
+//            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
+//                System.out.printf("The disc number %d cannot be added. The cart is full.%n", i);
+//                break;
+//            }
+//            else {
+//                itemsOrdered[qtyOrdered] = disc;
+//                qtyOrdered += 1;
+//                System.out.printf("The disc number %d has been added.%n", i);
+//            }
+//            i += 1;
+//        }
+//    }
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        if (qtyOrdered >= MAX_NUMBERS_ORDERED) System.out.println("Dvd 1 cannot be added. The cart is full.");
+        else {
+            itemsOrdered[qtyOrdered] = dvd1;
+            qtyOrdered += 1;
+            System.out.println("The dvd 1 has been added");
+        }
+        if (qtyOrdered >= MAX_NUMBERS_ORDERED) System.out.println("Dvd 2 cannot be added. The cart is full.");
+        else {
+            itemsOrdered[qtyOrdered] = dvd2;
+            qtyOrdered += 1;
+            System.out.println("The dvd 2 has been added");
+        }
+    }
+    public void removeDigitalVideoDisc(DigitalVideoDisc dvd) {
         for (int i = 0; i < qtyOrdered; i++) {
-            if (disc.equals(itemsOrdered[i])) {
+            if (dvd.equals(itemsOrdered[i])) {
                 for (int j = i; j < qtyOrdered - 1; j++) {
                     itemsOrdered[j] = itemsOrdered[j + 1];
                 }
@@ -22,6 +67,7 @@ public class Cart {
             }
         }
     }
+
     public String totalCost() {
         int i = 0;
         float totalCost = 0;
