@@ -38,6 +38,15 @@ public class DigitalVideoDisc {
     public void setCost(float cost) {
         this.cost = cost;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public DigitalVideoDisc(String title) {
         this.title = title;
         this.id = nbDigitalVideoDiscs;
@@ -78,6 +87,10 @@ public class DigitalVideoDisc {
         return getLength() == disc.getLength() && Float.compare(getCost(),
                 disc.getCost()) == 0 && getTitle().equals(disc.getTitle())
                 && getCategory().equals(disc.getCategory()) && getDirector().equals(disc.getDirector());
+    }
+    public String toString() {
+        return ("DVD" + " - " + this.title + " - " + this.category + " - " + this.director
+                + " - " + this.length + ": " + this.cost + " $");
     }
 
 }

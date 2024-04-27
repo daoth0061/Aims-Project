@@ -10,23 +10,8 @@ public class Cart {
             System.out.println("The disc has been added");
         }
     }
-    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
-        int i = 1;
-        for (DigitalVideoDisc disc: dvdList) {
-            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
-                System.out.printf("The disc number %d cannot be added. The cart is full.%n", i);
-                break;
-            }
-            else {
-                itemsOrdered[qtyOrdered] = disc;
-                qtyOrdered += 1;
-                System.out.printf("The disc number %d has been added.%n", i);
-            }
-            i += 1;
-        }
-    }
-    // passing an arbitrary number of arguments for dvd
-//    public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
+//    add a list of DVDs to the current cart.
+//    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
 //        int i = 1;
 //        for (DigitalVideoDisc disc: dvdList) {
 //            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
@@ -41,6 +26,22 @@ public class Cart {
 //            i += 1;
 //        }
 //    }
+//  passing an arbitrary number of arguments for dvd
+    public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
+        int i = 1;
+        for (DigitalVideoDisc disc: dvdList) {
+            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
+                System.out.printf("The disc number %d cannot be added. The cart is full.%n", i);
+                break;
+            }
+            else {
+                itemsOrdered[qtyOrdered] = disc;
+                qtyOrdered += 1;
+                System.out.printf("The disc number %d has been added.%n", i);
+            }
+            i += 1;
+        }
+    }
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         if (qtyOrdered >= MAX_NUMBERS_ORDERED) System.out.println("Dvd 1 cannot be added. The cart is full.");
         else {
@@ -67,7 +68,6 @@ public class Cart {
             }
         }
     }
-
     public String totalCost() {
         int i = 0;
         float totalCost = 0;
@@ -77,5 +77,44 @@ public class Cart {
         }
         return String.format("%.2f", totalCost);
     }
+    public void print() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+        if (qtyOrdered > 0) {
+            for (int i = 0; i < qtyOrdered; i++) {
+                System.out.println((i + 1) + ". " + itemsOrdered[i].toString());
+            }
+        }
+        System.out.println("Total cost: " + totalCost());
+        System.out.println("***************************************************");
+    }
+    public void searchDVDByID(int id) {
+        boolean found = false;
+        if (qtyOrdered > 0) {
+            for (int i = 0; i < qtyOrdered; i++) {
+                if (itemsOrdered[i].getId() == id) {
+                    System.out.println(itemsOrdered[i].toString());
+                    found = true;
+                }
+            }
+        }
+        if (found == false) {
+            System.out.println("No match is found for ID: " + id);
+        }
+    }
 
+    public void searchDVDByTitle(String title) {
+        boolean found = false;
+        if (qtyOrdered > 0) {
+            for (int i = 0; i < qtyOrdered; i++) {
+                if (itemsOrdered[i].getTitle().equals(title)) {
+                    System.out.println(itemsOrdered[i].toString());
+                    found = true;
+                }
+            }
+        }
+        if (found == false) {
+            System.out.println("No match is found for title: " + title);
+        }
+    }
 }
