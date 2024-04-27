@@ -1,3 +1,7 @@
+package hust.soict.dsai.aims.cart;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -11,9 +15,9 @@ public class Cart {
         }
     }
 //    add a list of DVDs to the current cart.
-//    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+//    public void addDigitalVideoDisc(hust.soict.dsai.aims.disc.DigitalVideoDisc.DigitalVideoDisc[] dvdList) {
 //        int i = 1;
-//        for (DigitalVideoDisc disc: dvdList) {
+//        for (hust.soict.dsai.aims.disc.DigitalVideoDisc.DigitalVideoDisc disc: dvdList) {
 //            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
 //                System.out.printf("The disc number %d cannot be added. The cart is full.%n", i);
 //                break;

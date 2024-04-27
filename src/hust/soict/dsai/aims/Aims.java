@@ -1,3 +1,8 @@
+package hust.soict.dsai.aims;
+
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Aims {
     public static void main(String[] args) {
         Cart anOrder = new Cart();
@@ -13,7 +18,7 @@ public class Aims {
         System.out.print("Total Cost is: ");
         System.out.println(anOrder.totalCost());
 
-        //code to test the method removeDigitalVideoDisc(DigitalVideoDisc disc)
+        //code to test the method removeDigitalVideoDisc(hust.soict.dsai.aims.disc.DigitalVideoDisc.DigitalVideoDisc disc)
 
         anOrder.removeDigitalVideoDisc(dvd2);
         System.out.print("Total Cost after removing disc 2 is: ");
