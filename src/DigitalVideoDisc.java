@@ -5,6 +5,9 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
+    private int id;
+    private static int nbDigitalVideoDiscs = 0;
+
     public String getTitle() {
         return title;
     }
@@ -37,11 +40,15 @@ public class DigitalVideoDisc {
     }
     public DigitalVideoDisc(String title) {
         this.title = title;
+        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
     }
     public DigitalVideoDisc(String title, String category, float cost) {
         this.title = title;
         this.category = category;
         this.cost = cost;
+        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
@@ -49,6 +56,8 @@ public class DigitalVideoDisc {
         this.category = category;
         this.director = director;
         this.cost = cost;
+        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
@@ -57,6 +66,8 @@ public class DigitalVideoDisc {
         this.director = director;
         this.length = length;
         this.cost = cost;
+        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
     }
 
     @Override
