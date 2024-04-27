@@ -1,3 +1,7 @@
+package hust.soict.dsai.test.disc;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class CorrectSwapMethodTestPassingParameter {
     public static void swap(ObjectWrapper a, ObjectWrapper b) {
         Object tmp = a.obj;
