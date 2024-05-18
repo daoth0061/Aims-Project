@@ -18,11 +18,9 @@ public class Cart {
     public void setQtyOrdered(int qtyOrdered) {
         this.qtyOrdered = qtyOrdered;
     }
-
     public Cart() {
         this.qtyOrdered = 0;
     }
-
     public void addMedia(Media... mediaList) {
         int i = 1;
         for (Media item: mediaList) {
@@ -104,7 +102,6 @@ public class Cart {
             System.out.println("No match is found for ID: " + id);
         }
     }
-
     public void searchMediaByTitle(String title) {
         boolean found = false;
         if (qtyOrdered > 0) {

@@ -1,11 +1,9 @@
 package hust.soict.dsai.aims;
-
 import hust.soict.dsai.aims.cart.*;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.store.*;
 
 import java.util.*;
-
 public class Aims {
     public static void showMenu() {
         System.out.println("AIMS: ");
@@ -39,7 +37,6 @@ public class Aims {
         System.out.println("--------------------------------");
         System.out.println("Please choose a number: 0-1-2");
     }
-
     public static void mediaDetailsMenu() {
         System.out.println("Options: ");
         System.out.println("-----------------------");
@@ -49,7 +46,6 @@ public class Aims {
         System.out.println("-----------------------");
         System.out.println("Please choose a number: 0-1-2");
     }
-
     public static void cartMenu() {
         System.out.println("Options: ");
         System.out.println("--------------------------------");
@@ -79,7 +75,6 @@ public class Aims {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Star Wars", "Science Fiction",
                 24.95f, 87, "George Lucas");
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.89f);
-
         ArrayList<String> authors1 = new ArrayList<String>();
         authors1.add("aaaaaaaa");
         Book book1 = new Book(4, "Hello World", "Action and adventure",
@@ -89,12 +84,11 @@ public class Aims {
         authors2.add("Dao");
         Book book2 = new Book(5, "Hello it's me", "Young Adult",
                 15.8f, authors2);
-
-        store.addMedia(dvd1);
-        store.addMedia(dvd2);
-        store.addMedia(dvd3);
-        store.addMedia(book1);
-        store.addMedia(book2);
+        store.addMediaWithoutNotice(dvd1);
+        store.addMediaWithoutNotice(dvd2);
+        store.addMediaWithoutNotice(dvd3);
+        store.addMediaWithoutNotice(book1);
+        store.addMediaWithoutNotice(book2);
     }
     public static boolean isValidTitle(String title) {
         // Define your validation rules here
@@ -150,9 +144,7 @@ public class Aims {
                                             default: System.out.println("Option invalid !"); break;
                                         }
                                     } while (mediaOpt != 0);
-                                } else {
-                                    System.out.println("Media does not exits in store !");
-                                }
+                                } else System.out.println("Media does not exits in store !");
                                 break;
                             case 2: //2. Add media to cart
                                 do {

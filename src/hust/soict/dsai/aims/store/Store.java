@@ -1,9 +1,6 @@
 package hust.soict.dsai.aims.store;
-
 import hust.soict.dsai.aims.media.Media;
-
 import java.util.ArrayList;
-
 public class Store {
     private ArrayList<Media> itemsInStore;
     private int itemCount = 0;
@@ -14,7 +11,10 @@ public class Store {
         itemsInStore.add(media);
         itemCount += 1;
         System.out.println("The media has been added.");
-
+    }
+    public void addMediaWithoutNotice(Media media) {
+        itemsInStore.add(media);
+        itemCount += 1;
     }
     public void removeMedia(Media media) {
         if (itemsInStore.contains(media)) {
