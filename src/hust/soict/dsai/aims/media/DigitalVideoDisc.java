@@ -1,27 +1,10 @@
-package hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc {
-    private String title;
-    private String category;
+public class DigitalVideoDisc extends Disc implements Playable {
     private String director;
     private int length;
-    private float cost;
-
-    private int id;
     private static int nbDigitalVideoDiscs = 0;
 
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public void setCategory(String category) {
-        this.category = category;
-    }
     public String getDirector() {
         return director;
     }
@@ -34,50 +17,30 @@ public class DigitalVideoDisc {
     public void setLength(int length) {
         this.length = length;
     }
-    public float getCost() {
-        return cost;
-    }
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public DigitalVideoDisc(String title) {
-        this.title = title;
-        this.id = nbDigitalVideoDiscs;
+        super(nbDigitalVideoDiscs, title);
         nbDigitalVideoDiscs++;
     }
     public DigitalVideoDisc(String title, String category, float cost) {
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-        this.id = nbDigitalVideoDiscs;
+        super(title, category, cost, nbDigitalVideoDiscs);
         nbDigitalVideoDiscs++;
     }
-
     public DigitalVideoDisc(String title, String category, String director, float cost) {
-        this.title = title;
-        this.category = category;
+        super(title, category, cost, nbDigitalVideoDiscs);
         this.director = director;
-        this.cost = cost;
-        this.id = nbDigitalVideoDiscs;
         nbDigitalVideoDiscs++;
     }
-
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this.title = title;
-        this.category = category;
+        super(title, category, cost, nbDigitalVideoDiscs);
         this.director = director;
         this.length = length;
-        this.cost = cost;
-        this.id = nbDigitalVideoDiscs;
+        nbDigitalVideoDiscs++;
+    }
+    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
+        super(title, category, cost, id);
+        this.director = director;
+        this.length = length;
         nbDigitalVideoDiscs++;
     }
 
@@ -91,8 +54,12 @@ public class DigitalVideoDisc {
                 && getCategory().equals(disc.getCategory()) && getDirector().equals(disc.getDirector());
     }
     public String toString() {
-        return ("DVD" + " - " + this.title + " - " + this.category + " - " + this.director
-                + " - " + this.length + ": " + this.cost + " $");
+        return ("DVD" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.director
+                + " - " + this.length + ": " + this.getCost() + " $");
     }
-
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
 }
